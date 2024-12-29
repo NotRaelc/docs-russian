@@ -1,16 +1,16 @@
-# Geode Доксы
+# Геод доксы
 
 ### [Посетить сайт Геода](https://docs.geode-sdk.org)
 
-Это исходный код для Geode доксов, содержащие все вручную написанные туториалы.
+Это исходный код для Геодовских доксов, содержащие все вручную написанные туториалы.
 
-"Классы и функции" документация к ним построенна автоматически из [Geode исходный код](https://github.com/geode-sdk/geode).
+"Классы и функции" документация к ним построенна автоматически из [Исходного кода Геода](https://github.com/geode-sdk/geode).
 
-## Building
+## Постройка сайта
 
-The docs are built using [Flash](https://github.com/hjfod/flash). To build the docs, you need Flash, along with [CMake](https://cmake.org/install/) and [Clang](https://clang.llvm.org/).
+Доксы строяться на том, что используют [Flash](https://github.com/hjfod/flash). Для постройки доксов, вам нужен Flash, вместе с [CMake](https://cmake.org/install/) и [Clang](https://clang.llvm.org/).
 
-To build the docs, you first need to clone Geode, and then clone the docs inside the Geode root, for a folder structure like this:
+Для постройки, вам сначало надо клонировать Геод, and then clone the docs inside the Geode root, for a folder structure like this:
 
 ```
 geode/
