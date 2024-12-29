@@ -1,10 +1,10 @@
-# Geode Docs
+# Geode Доксы
 
-### [Visit the Docs site](https://docs.geode-sdk.org)
+### [Посетить сайт Геода](https://docs.geode-sdk.org)
 
-This is the source code for Geode's docs, containing all the hand-written tutorials.
+Это исходный код для Geode доксов, содержащие все вручную написанные туториалы.
 
-Class & function documentation is built automatically from [the Geode source code](https://github.com/geode-sdk/geode).
+"Классы и функции" документация к ним построенна автоматически из [Geode исходный код](https://github.com/geode-sdk/geode).
 
 ## Building
 
