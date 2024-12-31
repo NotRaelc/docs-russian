@@ -10,7 +10,7 @@
 
 Доксы строяться на том, что используют [Flash](https://github.com/hjfod/flash). Для постройки доксов, вам нужен Flash, вместе с [CMake](https://cmake.org/install/) и [Clang](https://clang.llvm.org/).
 
-Для постройки, вам сначало надо клонировать Геод, and then clone the docs inside the Geode root, for a folder structure like this:
+Для постройки, вам сначало надо клонировать Геод, и потом клонировать внутрь пути Геода, для папкок это будет примерно так:
 
 ```
 geode/
@@ -19,7 +19,7 @@ geode/
     <geode files>
 ```
 
-For example, you can do this with the following commands:
+Для примера, вы можете это сделать следуя этим командам:
 
 ```
 git clone https://github.com/geode-sdk/geode
