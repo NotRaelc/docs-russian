@@ -1,26 +1,26 @@
 ---
-description: How to install dependencies to Geode mods
+description: Как установить зависимости для модов Geode
 ---
 
-# Dependencies
+# Зависимости
 
-Geode provides utilities for mods to depend on other mods, to make sharing code easy.
+Geode предоставляет инструменты, позволяющие модам зависеть от других модов, что упрощает переиспользование кода.
 
-Note that Geode **only manages dependencies that are mods**. Normal C++ dependencies, like a JSON parsing library, ZIP library, or some networking utilities, **should just be installed like they are in any other C++ project**. Use CPM, Git submodules, copy the code to your project, whatever you prefer. If the library is dynamic, include the `.dll` with your mod through the `files` key in `resources`. 
+Обратите внимание, что Geode **управляет только теми зависимостями, которые являются модами**. Обычные зависимости C++, такие как библиотека для парсинга JSON, библиотека ZIP или какие-нибудь сетевые утилиты, **должны быть просто установлены, как и в любом другом проекте на C++**. Используйте CPM, Git-подмодули, копируйте код в свой проект, в общем, как вам удобнее. Если библиотека динамическая, подключите `.dll` к своему моду через ключ `files` в `resources`.
 
-However, sometimes you want to depend on code that can't just be used as a normal library; for example, **custom keybinds**. Geode does not provide any custom keybinds utilities out-of-the-box, so you need to use a library. However, it would not make much sense if every mod bundled their own incompatible systems for dealing with custom keybinds. Instead, there should be one mod that just adds the functionality, and then other mods can depend on that mod and call its functions to add keybinds.
+Однако, иногда возникает необходимость использовать код, который нельзя подключить как обычную библиотеку; например, **custom keybinds**. Geode не предоставляет никаких готовых иструментов для настройки пользовательских клавиш, поэтому вам придется использовать библиотеку. Однако было бы не очень разумно, если бы каждый мод поставлял свои собственные несовместимые средства для работы с привязками клавиш. Вместо этого, должен быть один мод, который просто добавляет эту функциональность, а затем другие моды могут зависеть от него и вызывать его функции для работы с пользовательскими клавишами.
 
-## How dependencies work
+## Как работают моды-зависимости
 
-Dependency mods are like any other mods, except that they **include their headers and linkable files in their .geode package**. Usually the headers are located in an `include` directory inside the package, but they may also be anywhere. The linkable file is `mod.id.lib` on Windows and the normal mod binary on other platforms, located at the root of the package.
+Моды-зависимости по своей сути аналогичны обычным модам, за исключением того, что они **включают свои заголовочные файлы и файлы для линковки в свой .geode пакет**. Обычно заголовочные файлы находятся в папке `include` внутри пакета, но могут располагаться и в любом другом месте. Файл для линковки представляет собой `mod.id.lib` на Windows или бинарный файл мода в корне пакета на прочих платформах.
 
-Otherwise, dependency mods are just like normal mods; they may place hooks, patches, add features to the game, and be published on the mods index. However, **dependency mods should keep the features they add to a minimum**, and be focused on the specific features they're meant to add. For example, a custom keybinds dependency should only add the necessities for working with custom keybinds; it shouldn't also add a bunch of other features, like adding more icons or customizing menus.
+В остальном, моды-зависимости ничем не отличаются от обычных модов; они могут устанавливать хуки, патчи, добавлять функции в игру и публиковаться в каталоге модов. Однако, **моды-зависимости должны сводить функциональность, которую они добавляют, к минимуму**, и быть сфокусированными на конкретных функциях, которые они призваны добавлять. Например, мод-зависимость для пользовательских горячих клавиш должна добавлять только необходимое для работы с горячими клавишами; она не должна добавлять кучу других функций, таких как добавление новых иконок или настройка меню.
 
-If a dependency is required, it is **linked to**; this means that for the mod that depends on it to run, the dependency must be present. However, as sometimes you may want to only use a dependency if it is loaded, **dependencies may also be marked optional**. In this case, the dependency is not linked to, which means that you can't use any of the dependency's functions, but have to use Geode's functions for working with optional dependencies. See [Optional dependencies](#optional-dependencies) for more info.
+Если зависимость является обязательной, то она **линкуется**, что означает необходимость ее наличия для запуска мода, от неё зависящего. Однако, с учетом того, что иногда требуется использовать зависимость только в случае ее загрузки, **существует возможность пометить зависимость как необязательную**. В этом случае она не линкуется, а значит, прямое использование ее функций становится невозможным; вместо этого, необходимо применять функции Geode, предназначенные для работы с необязательными зависимостями. Дополнительные сведения можно найти в разделе [Необязательные зависимости](#optional-dependencies).
 
-## Adding dependencies
+## Добавление зависимостей
 
-Dependencies can be added to your mod by simply adding it to the `dependencies` key in [mod.json](/mods/configuring.md):
+Зависимости можно включить в ваш мод, просто добавив их в ключ `dependencies` в [mod.json](/mods/configuring.md):
 
 ```json
 {
