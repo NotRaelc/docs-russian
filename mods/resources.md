@@ -1,20 +1,20 @@
 ---
-description: How to include resources in Geode mods
+description: Включение ресурсов в моды Geode
 ---
 
-# Resources
+# Ресурсы
 
-Geode mods may include any number of resources/assets in the mod package. Geode also provides utilities for automatically **generating spritesheets**, **turning TTF fonts to Bitmap ones**, and **creating Medium/Low versions of sprites**.
+Моды Geode могут включать любое количество ресурсов/ассетов в пакете мода. Geode также предоставляет утилиты для автоматической **генерации спрайт-листов**, **преобразования шрифтов TTF в растровые**, и **создания версий спрайтов среднего/низкого качества**.
 
-In order for Geode to create the resources, [you must have Geode CLI installed](/geode/installcli).
+IДля того чтобы Geode создал ресурсы, [необходимо установить Geode CLI](/geode/installcli).
 
-## Adding sprites
+## Добавление спрайтов
 
-Adding sprites is as simple as adding the PNG files somewhere in your mod's source directory (commonly under `resources`) and then adding them to your [mod.json](/mods/configuring.md).
+Добавление спрайтов так же просто, как добавление файлов PNG в исходную директорию вашего мода (обычно в папку `resources`) и затем добавление их в ваш файл [mod.json](/mods/configuring.md).
 
-Geometry Dash needs all sprites to have a High, Medium, and Low quality version for performance. **Geode assumes that the source sprites you provide are UHD quality, and creates the medium / low versions automatically.** You should only include the high quality version of your sprite in resources.
+Geometry Dash требует, чтобы все спрайты имели версии высокого, среднего и низкого качества для оптимизации.  **Geode предполагает, что предоставленные вами исходные спрайты имеют сверхвысокое разрешение (UHD), и автоматически создает версии среднего/низкого качества**. Вам следует включать в ресурсы только высококачественную версию вашего спрайта.
 
-Example for adding sprites:
+Пример добавления спрайтов:
 
 ```json
 {
@@ -27,13 +27,13 @@ Example for adding sprites:
 }
 ```
 
-You can now use the sprite in-game by using its name, just like any other sprite. Note that **Geode automatically prefixes all sprites to avoid name collisions**, so the actual name of the sprite in code is `my.mod-id/MySprite.png`. For convenience, Geode provides a `_spr` string literal extension that automatically adds this prefix:
+Теперь вы можете использовать спрайт в игре, используя его имя, как и любой другой спрайт. Обратите внимание, что **Geode автоматически добавляет префикс ко всем спрайтам, чтобы избежать схожих имен**, поэтому фактическое имя спрайта в коде — `my.mod-id/MySprite.png`. Для удобства Geode предоставляет строковое расширение `_spr`, которое автоматически добавляет этот префикс:
 
 ```cpp
 auto spr = CCSprite::create("MySprite.png"_spr);
 ```
 
-Additionally, Geode supports **globbing**, so you can include all of the PNGs from a folder at once:
+Кроме того, Geode поддерживает **globbing**, поэтому вы можете сразу включить все файлы PNG из папки:
 
 ```json
 {
@@ -45,9 +45,9 @@ Additionally, Geode supports **globbing**, so you can include all of the PNGs fr
 }
 ```
 
-## Adding spritesheets
+## Добавление спрайт-листов
 
-Spritesheets are **better for performance** than ordinary sprites, so it's recommended to put as many of your sprites in a spritesheet as you can. Geode requires all spritesheets to have names; the name should be written in [PascalCase](https://techterms.com/definition/pascalcase).
+Спрайт-листы обеспечивают **лучшую производительность**, чем обычные спрайты, поэтому рекомендуется помещать как можно больше спрайтов в спрайт-лист. Geode требует, чтобы все спрайт-листы имели имена; имя должно быть написано в формате [PascalCase](https://techterms.com/definition/pascalcase).
 
 ```json
 {
@@ -64,15 +64,15 @@ Spritesheets are **better for performance** than ordinary sprites, so it's recom
 }
 ```
 
-After adding the sheet and its sprites to your `mod.json`, you can now use the sprite in code as normal:
+После добавления листа и его спрайтов в ваш `mod.json`, вы можете использовать спрайт в коде как обычно:
 
 ```cpp
 auto spr = CCSprite::createWithSpriteFrameName("mySpriteInASheet.png"_spr);
 ```
 
-## Adding fonts
+## Добавление шрифтов
 
-Geode can automatically convert TTF and OTF fonts into GD-compatible Bitmap fonts. You can add fonts by adding them under the `fonts` key in `resources`:
+Geode может автоматически преобразовывать шрифты TTF и OTF в совместимые с GD растровые шрифты. Вы можете добавить шрифты через ключ `fonts` в `resources`:
 
 ```json
 {
@@ -92,21 +92,21 @@ Geode can automatically convert TTF and OTF fonts into GD-compatible Bitmap font
 }
 ```
 
-The same `_spr` suffix for sprites can be used for fonts aswell:
+Тот же суффикс `_spr` для спрайтов может использоваться и для шрифтов:
 
 ```cpp
 auto label = CCLabelBMFont::create("Hi mom!", "MyFont.fnt"_spr);
 ```
 
-The `path` key in a font is a path to the font file. The `size` key is the size of the rendered font characters; this may be any positive number, and a reasonable value for it is whatever is large enough to look good in-game. If the size is too small, the font may look blurry. The larger the size, the larger the font though.
+Ключ `path` в описании шрифта указывает путь к файлу шрифта. Ключ `size` задает размер отрисовываемых символов шрифта; это может быть любое положительное число, а разумное значение — такое, которое достаточно велико, чтобы хорошо выглядеть в игре. Если размер слишком мал, шрифт может выглядеть нечетким. Чем больше размер, тем больше шрифт.
 
-The `charset` key specifies the Unicode codepoints of which characters should be included in the font. GD fonts include `32-126,8226`, which are ASCII letters with a few punctuation marks included. Ranges can be specified with a dash and codepoints should be separated with a comma.
+Ключ `charset` указывает кодовые символов Unicode, которые должны быть включены в шрифт. Шрифты GD включают в себя `32-126,8226`, которые представляют собой буквы ASCII с несколькими знаками препинания. Диапазоны можно задавать через дефис, а кодовые точки должны разделяться запятой.
 
-There is also an experimental key `outline` that adds a black outline around the font characters and a small shadow, to make it similar to other GD fonts. As this feature is experimental, be aware that the output quality may vary.
+Также есть экспериментальный ключ `outline`, который добавляет черный контур вокруг символов шрифта и небольшую тень, чтобы сделать его похожим на другие шрифты GD. Поскольку эта функция экспериментальная, имейте в виду, что качество вывода может варьироваться.
 
-## Adding audio & other files
+## Добавление аудио и других файлов
 
-Any other files can be included through the `files` key:
+Любые другие файлы могут быть включены через ключ `files`:
 
 ```json
 {
