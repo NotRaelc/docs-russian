@@ -1,16 +1,16 @@
-# Geode Docs
+# Геод доксы
 
-### [Visit the Docs site](https://docs.geode-sdk.org)
+### [Посетить сайт Геода](https://docs.geode-sdk.org)
 
-This is the source code for Geode's docs, containing all the hand-written tutorials.
+Это исходный код для Геодовских доксов, содержащие все вручную написанные туториалы.
 
-Class & function documentation is built automatically from [the Geode source code](https://github.com/geode-sdk/geode).
+"Классы и функции" документация к ним построенна автоматически из [Исходного кода Геода](https://github.com/geode-sdk/geode).
 
-## Building
+## Постройка сайта
 
-The docs are built using [Flash](https://github.com/hjfod/flash). To build the docs, you need Flash, along with [CMake](https://cmake.org/install/) and [Clang](https://clang.llvm.org/).
+Доксы строяться на том, что используют [Flash](https://github.com/hjfod/flash). Для постройки доксов, вам нужен Flash, вместе с [CMake](https://cmake.org/install/) и [Clang](https://clang.llvm.org/).
 
-To build the docs, you first need to clone Geode, and then clone the docs inside the Geode root, for a folder structure like this:
+Для постройки, вам сначало надо клонировать Геод, и потом клонировать внутрь пути Геода, для папкок это будет примерно так:
 
 ```
 geode/
@@ -19,7 +19,7 @@ geode/
     <geode files>
 ```
 
-For example, you can do this with the following commands:
+Для примера, вы можете это сделать следуя этим командам:
 
 ```
 git clone https://github.com/geode-sdk/geode
@@ -27,14 +27,14 @@ cd geode
 git clone https://github.com/geode-sdk/docs
 ```
 
-Alternatively, you can symlink your local copy of the docs folder to your local copy of the Geode folder.
+С другой стороны вы можете использовать симлинк для копирки папок доков в папку геода.
 
-After building Flash from source using Cargo or installing the latest release, you can build the docs with the following command:
+После постройки через Flash из исходников используя Cargo или установка последнего релиза, вы сможете построить доки используя эту команду:
 
 ```
 flash -i <path/to/geode> -o <relative_output_dir> --overwrite
 ```
 
-Afterwards, start up a local HTTP server in the folder where you ran Flash.
+После всего, запускайте локальный HTTP сервер в папке где вы запускали Flash.
 
-You should run Flash in the directory you want to build the docs in and use `-o .`, or run it in the parent directory and do `-o <output_dir_name>`.
+Вы должны запустить Flash в директории где вы хотите построить доки и используйте `-o .`, или запускайте из стандартной и для этого напишите `-o <output_dir_name>`.
