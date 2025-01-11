@@ -1,16 +1,16 @@
 ---
-description: How to configure Geode mods using mod.json
+description: Конфигурация модов Geode с помощью mod.json
 ---
 
-# Configuring mods
+# Конфигурация модов
 
-Geode mods are configured through a file called `mod.json`, located at the root of your project. The file contains general information about the mod, such as the name, ID, version, and also things like settings, resources, and dependencies.
+Конфигурация модов для Geode происходит через файл `mod.json`, расположенный в корневой ветке вашего проекта. Файл содержит общую информацию о моде, такую как название, ID, версию, а также такие вещи, как настройки, ресурсы и зависимости.
 
-If you're using VS Code, you should [install the Geode VS Code extension](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode), as it provides automatic checking for `mod.json` and intellisense for what keys are available.
+Если вы используете VS Code, то вам следует [установить расширение Geode VS Code](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode), так как оно обеспечивает автоматическую проверку `mod.json` и intellisense для определения доступных ключей.
 
-## Required settings
+## Необходимые настройки
 
-There are 6 required properties for every mod: the target Geode version, the ID and name of the mod, its developer, and its version.
+Для каждого мода есть 6 обязательных ключей: Требуемая версия Geode, ID и название мода, его разработчик и версия.
 
 ```json
 {
@@ -25,7 +25,7 @@ There are 6 required properties for every mod: the target Geode version, the ID 
     "developer": "Me"
 }
 ```
-You can also use the `developers` property instead of `developer`
+Вы также можете использовать ключ `developers` вместо `developer`.
 
 ```json
 {
@@ -41,17 +41,17 @@ You can also use the `developers` property instead of `developer`
 }
 ```
 
-## List of keys
+## Список ключей
 
 ### `geode`
 
-The target Geode version. Should be in the format of an exact version, such as `v1.0.0` or `v1.2.0`. The target version should always be the exact version of Geode you are developing with.
+Требуемая версия Geode. Должна быть в формате точной версии, например, `v1.0.0` или `v1.2.0`. Требуемая версия всегда должна быть именно той версией Geode, с которой вы работаете.
 
 ### `gd`
 
-The target Geometry Dash version exactly, or `*` for **any** GD version (whether your mod actually works on any GD version is your responsibility.) 
+Требуемая версия Geometry Dash, или `*` для **любой** версии GD (за то, будет ли ваш мод работать на любой версии GD, отвечаете вы).
 
-This key is an object for specifying per platform GD version:
+Этот ключ представляет собой словарь для указания версии GD для каждой платформы:
 ```json
 {
     "gd": {
@@ -60,11 +60,11 @@ This key is an object for specifying per platform GD version:
     }
 }
 ```
-The valid platform keys are `win`, `mac`, `android` and `ios`.
+Существуют следующие ключи платформ: `win`, `mac`, `android` и `ios`.
 ```json
 {
     "gd": {
-        "android": "*" // Mod works on any android gd version
+        "android": "*" // Мод работает на любой версии gd для андроид
     }
 }
 ```
@@ -72,88 +72,88 @@ The valid platform keys are `win`, `mac`, `android` and `ios`.
 
 ### `id`
 
-The ID of the mod. May only contain lowercase ASCII characters (`a-z`), periods (`.`), underscores (`_`) and dashes (`-`). Otherwise may be formatted in any way you like, but it is common to make the ID be in the form of `developer.mod-name`. The ID is used to uniquely identify the mod in things such as folder names, URLs, and save data.
+Идентификатор мода. Может содержать только строчные ASCII-символы (`a-z`), точки (`.`), знаки подчеркивания (`_`) и тире (`-`). В остальном может быть отформатирован любым удобным для вас способом, но обычно ID имеет вид `developer.mod-name`. ID используется для уникального обозначения мода в таких местах, как имена папок, данные сохранения и ссылки.
 
 ### `name`
 
-The name of the mod that is displayed in-game, and in other situations where the mod is displayed. May be any UTF-8 valid string, however do note that GD does not normally support many characters beyond the ASCII character set, so unless the user has a mod or texture pack that extends the character set, not all characters in the name may be displayed.
+Название мода, которое отображается в игре и в других ситуациях, когда мод отображается. Это может быть любая строка в формате UTF-8, однако следует учитывать, что GD обычно не поддерживает множество символов, выходящих за рамки набора символов ASCII, поэтому, если у пользователя нет мода или текстурпака, расширяющего набор символов, не все символы в названии могут быть отображены.
 
 ### `version`
 
-The version of the mod; should follow [semver](https://semver.org), especially if the mod can be used as a dependency (see [the API key](#api)).
+Версия мода; должна соответствовать [semver](https://smever.org), особенно если мод может быть использован в качестве зависимости (см. [ключ API](#api)).
 
 ### `developer`
 
-The name of the mod's developer. Should be a single name, like "HJfod" or "Alk". If the mod has multiple developers, this should be a team name like "Geode Team".
+Имя разработчика мода. Должно быть одно имя, например "HJfod" или "Alk". Если у мода несколько разработчиков, это должно быть имя команды, например "Geode Team".
 
 ### `developers` 
 
-The name of the mod's developers. Replaces `developer`. Can be a single name, like \["HJfod"\] or \["Alk"\]. If the mod has multiple developers, you should list the names of each developer because, the `developers` property is a list/array. First developer listed is the main developer. If you have 3 or more developers listed, it will show `main developer + 2 more`. If you have 2 developers listed, it will show `Developer 1 & Developer 2`. If you list multiple developers, when someone clicks on your name(s), it will show the list of the developers, then you can click on one to see other mods they have made or are apart of.
+Имена разработчиков мода. Заменяет `developer`. Может быть одним именем, например \["HJfod"\] или \["Alk"\]. Если у мода несколько разработчиков, вы должны перечислить имена каждого из них, потому что ключ `developers` - это список/массив. Первый указанный разработчик является главным. Если у вас 3 или более разработчиков, то будет показано `главный разработчик + еще 2`. Если указано 2 разработчика, то будет показано `Разработчик 1 и Разработчик 2`. Если вы перечислите несколько разработчиков, то при нажатии на ваше имя (имена) будет показан список разработчиков, а затем вы можете нажать на одного из них, чтобы увидеть другие моды, которые они сделали или в которых участвуют.
 
 ### `description`
 
-A short description of the mod. Should only be a single sentence; for longer descriptions, see [about.md](/mods/md-files.md).
+Краткое описание мода. Должно состоять только из одного предложения; более длинные описания см. в [about.md](/mods/md-files.md).
 
 ### `repository`
 
-The Git repository of the mod.
+Git-репозиторий этого мода.
 
 ### `issues`
 
-Describes where users can report problems with the mod. Value is an object with the following properties:
+Указывает, куда пользователи могут сообщить о проблемах с модом. Здесь значением будет словарь со следующими ключами:
 
- * `info` - Free-form description of where / whom to report issues to
+ * `info` - куда/кому следует сообщать о проблемах;
 
- * `url` - URL to a Discord server, GitHub repository etc. where the issues are reported
+ * `url` - ссылка на сервер Discord, репозиторий GitHub и т.п., где сообщается о проблемах мода.
 
 ### `dependencies`
 
-The dependencies of a mod; see [Dependencies](/mods/dependencies.md) for details
+Зависимости мода; подробности см. в [зависимостях](/mods/dependencies.md)
 
 ### `incompatibilities`
 
-The incompatibilities of a mod. Very similar to [dependencies](/mods/dependencies.md) but the valid importances are `breaking`, `conflicting` and `superseded`.
+Несовместимости мода. Очень похоже на [зависимости](/mods/dependencies.md), однако допустимыми значениями являются `breaking`, `conflicting` и `upersed`.
 
 ### `settings`
 
-The settings of a mod; see [Settings](/mods/settings.md) for details
+Настройки мода; подробности см. в [настройках](/mods/settings.md)
 
 ### `resources`
 
-The resources of a mod; see [Resources](/mods/resources.md) for details
+Ресурсы мода; подробности см. в [ресурсах](/mods/resources.md)
 
 ### `early-load`
 
-If true, specifies that this mod must have finished loading before the loading screen appears in GD. For example, [TextureLdr](https://github.com/geode-sdk/textureldr) uses this to apply texture packs at startup.
+Если true, указывает, что этот мод должен закончить загрузку до появления экрана загрузки в GD. Например, [TextureLdr](https://github.com/geode-sdk/textureldr) использует это для применения текстур-паков при запуске.
 
 ### `api`
 
-Specifies that this mod can be [used as a dependency](/mods/dependencies.md). Value is an object with the following properties:
+Указывает, что этот мод может быть [использован как зависимость](/mods/dependencies.md). Здесь значением будет словарь со следующими ключами:
 
 #### `headers`
 
-An array specifying the list of headers that should bundled with this mod. Supports [globbing](/mods/resources.md).
+Массив, определяющий список заголовочных файлов, которые должны быть включены в этот мод. Поддерживает [globbing](/mods/resources.md).
 
 ### `tags`
 
-A list of tags to categorize the mod. A mod can have any amount of tags, but between 1-4 is the recommended amount.
+Список тегов для категоризации мода. Мод может иметь любое количество тегов, но рекомендуемое количество - от 1 до 4.
 
-| Tag name | Description |
+| Тег | Описание |
 |----------|-------------|
-| `universal` | The mod affects the entire game |
-| `gameplay` | The mod affects mainly gameplay |
-| `editor` | The mod affects mainly the editor |
-| `offline` | The mod does not require an internet connection to work |
-| `online` | The mod requires an internet connection to work |
-| `enhancement` | The mod enhances (adds more) to an existing GD feature |
-| `music` | The mod deals with music, such as adding more songs |
-| `interface` | The mod modifies the GD UI in notable ways (beyond just adding a new button) |
-| `bugfix` | The mod fixes existing bugs in the game |
-| `utility` | The mod provides tools that simplify working with the game and its levels |
-| `performance` | The mod optimizes existing GD features |
-| `customization` | The mod adds new customization options to existing GD features |
-| `content` | The mod adds new content (new levels, gamemodes, etc.) |
-| `developer` | The mod is intended for mod developers only |
-| `cheat` | The mod adds cheats like noclip |
-| `paid` | The mod contains paid content, like a Pro tier, or if the mod acts as an installer for a fully paywalled mod |
-| `joke` | The mod is a joke. See [the docs](/mods/guidelines#joke-mods) for what joke mods are considered to be "meaningful" |
+| `universal` | Мод затрагивает всю игру |
+| `gameplay` | Мод влияет в основном на игровой процесс |
+| `editor` | Мод затрагивает в основном редактор |
+| `offline` | Мод не требует подключения к интернету для работы |
+| `online` | Для работы мода требуется подключение к интернету |
+| `enhancement` | Мод улучшает (расширяет) существующий функционал GD |
+| `music` | Мод касается музыки, например, добавляет больше песен |
+| `interface` | Мод изменяет пользовательский интерфейс GD в значительной степени (помимо добавления новой кнопки) |
+| `bugfix` | Мод исправляет существующие ошибки в игре |
+| `utility` | Мод предоставляет инструменты, которые упрощают работу с игрой и ее уровнями |
+| `performance` | Мод оптимизирует существующие функции GD |
+| `customization` | Мод добавляет новые возможности настройки к существующему функционалу GD |
+| `content` | Мод добавляет новый контент (новые уровни, игровые режимы и т.д.) |
+| `developer` | Мод предназначен только для разработчиков модов |
+| `cheat` | Мод добавляет читы, такие как noclip |
+| `paid` | Мод содержит платный контент, например, уровень Pro, или если мод выступает в качестве установщика для полностью платного мода. |
+| `joke` | Мод является шуточным. Смотрите [документацию](/mods/guidelines#joke-mods), чтобы узнать какие шуточные моды считаются "значимыми" |
