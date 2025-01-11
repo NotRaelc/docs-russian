@@ -1,8 +1,8 @@
 ---
-description: A collection of tutorials for working with Geode mods
+description: Подборка обучающих уроков по работе с модами Geode
 order: 3
 ---
 
-# Geode Mods
+# Моды Geode
 
-These are a collection of tutorials for working with Geode mods; how to setup your developer environment, how to add settings, dependencies, etc.
+Это подборка обучающих уроков по работе с модами Geode: как настроить среду разработчика, как добавить настройки, зависимости и т.д.
