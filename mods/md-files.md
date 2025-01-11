@@ -1,54 +1,54 @@
 ---
-title: Special Markdown Files
-description: How to use about.md and other Markdown files in a Geode mod
+title: Специальные файлы Markdown
+description: Как использовать about.md и другие файлы Markdown в Geode mod
 ---
 
 # `about.md`
 
-Geode mods can specify a long, free-form description typeset using Markdown by including a file named `about.md` at the root of their project. See [the MDTextArea class](/classes/geode/MDTextArea) for information on what features of Markdown are supported.
+Моды Geode могут указывать длинное, произвольное описание, набранное с использованием Markdown, включив файл с именем `about.md` в корень своего проекта. Информацию о том, какие функции Markdown поддерживаются, смотрите в [классе MDTextArea](/classes/geode/MDTextArea).
 
-This file is similar to a README, however **it's intended for people who use the mod**; you should also keep a README for developers interested in building / contributing to your mod.
+Этот файл похож на README, однако **он предназначен для людей, которые используют мод**; вам также следует вести README для разработчиков, заинтересованных в сборке / внесении вклада в ваш мод.
 
-## Example
+## Пример
 
 ```md
-# My Awesome Mod
+# Мой Крутой Мод
 
-This is my awesome mod, that does **all** the awesome stuff!
+Это мой крутой мод, который делает **всякие** классные вещи!
 
-If you like this mod, please check [my other mod](mod:my.other-mod)!
+Если вам нравится этот мод, пожалуйста, посмотрите [мой другой мод](mod:my.other-mod)!
 
-## Credits
+## Благодарности
 
-[Join my Discord](https://discord.gg/K9Kuh3hzTC)! Thanks to [Hu Tao](https://www.youtube.com/watch?v=8oap-n_OEgc) for helping with the mod!
+[Присоединяйтесь к моему Discord](https://discord.gg/K9Kuh3hzTC)! Спасибо [Hu Tao](https://www.youtube.com/watch?v=8oap-n_OEgc) за помощь с модом!
 ```
 
 # `changelog.md`
 
-A markdown file that contains a changelog for your mod. Geode uses this file to show release notes for the mod.
+Файл Markdown, содержащий журнал изменений для вашего мода. Geode использует этот файл для отображения заметок о выпуске мода.
 
-## Example
+## Пример
 
 ```md
 # v1.1.0
 
- * Removed Herobrine
+ * Удалён Херобрин
 
 # v1.0.1
 
- * Fixed bugs
+ * Исправлены баги
 
 # v1.0.0
 
- * Initial release
+ * Первоначальный релиз
 ```
 
 # `support.md`
 
-A markdown file that contains free-form information about how to support you, the mod's developer. This may include things like links to your Patreon, PayPal, Ko-Fi, etc. - anything you wish to include!
+Файл Markdown, содержащий произвольную информацию о том, как поддержать вас, разработчиков мода. Это может включать в себя такие вещи, как ссылки на ваши Patreon, PayPal, Ko-Fi и т. д. - все, что вы хотите включить!
 
 ```md
-# Thank You for using Rattledasher 5000!
+# Спасибо за использование Rattledasher 5000!
 
-If you like this mod and would like to support me, I have an [OnlyFans](https://globed.dev/soggy/)! You can see me rattle my dashes like a pro if you know what I mean ;)
+Если вам нравится этот мод и вы хотели бы меня поддержать, у меня есть [OnlyFans](https://globed.dev/soggy/)! Вы можете увидеть как я трясу своими тарелками как про, если вы понимаете, о чем я ;)
 ```
