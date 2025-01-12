@@ -1,47 +1,39 @@
-# Publishing Geode Mods
+# Публикация модов Geode
 
-Once your awesome mod is finished, it's time to publish it for all the world to see! Geode comes with an in-game "Download" section where users can download mods from, which gets its content from [the Geode Index](https://api.geode-sdk.org/v1/mods).
+Когда ваш потрясающий мод готов, самое время опубликовать его для всеобщего обозрения! В Geode есть внутриигровой раздел «Download», откуда пользователи могут скачивать моды, которые получают свое содержимое из [индекса Geode](https://api.geode-sdk.org/v1/mods).
 
-## Getting Your Mod on the Repo
+## Размещение мода в репозитории
 
-> :warning: All mods submitted on the index **must provide the source code**! If your mod is open source, just include a link to a Github repository or equivalent. For closed source mods, see [the dedicated section](#what-about-closed-source-mods)
+> :warning: Все моды, размещённые в индексе, **должны предоставлять исходный код**! IЕсли твой мод с открытым исходным кодом, просто добавь ссылку на репозиторий на Github или его аналог. Для модов с закрытым исходным кодом смотри [специальный раздел](#Что-насчет-модов-с-закрытым-исходным-кодом)
 
-Submitting a mod to the official mod index is as follows:
+Процесс отправки мода в официальный индекс модов таков:
 
-1. Make sure you have the [**latest** CLI](/getting-started/geode-cli) set up.
-2. Build and release your mod somewhere - we highly recommend using GitHub releases, as this provides a straight-forward way to deal with versioning.
-   - Do **NOT** replace existing uploaded versions! This will change the hash and thus users will be unable to download the old version.
-4. Login to the index using the **CLI**: `geode index login`. This will prompt you to login using your GitHub account.
-5. Run `geode index mods create`
-6. Provide a **direct download link** to the .geode file (for example `https://github.com/HJfod/BetterEdit/releases/download/v6.3.3/hjfod.betteredit.geode`)
-7. An **index admin** will have to validate that your mod meets the [index guidelines](/mods/guidelines) and approve your mod.
+1. Убедись, что у тебя установлена [**последняя версия** CLI](/getting-started/geode-cli).
+2. Собери и выпусти свой мод где-нибудь. Мы настоятельно рекомендуем использовать релизы GitHub, так как это простой способ управления версиями.
+   - **НЕ** заменяй уже загруженные версии! Это изменит хеш, и пользователи не смогут скачать старую версию.
+4. Залогинься в индекс через **CLI**: `geode index login`. Тебе будет предложено войти с помощью аккаунта GitHub.
+5. Выполни команду `geode index mods create`
+6. Укажи **прямую ссылку для скачивания** .geode-файла (например `https://github.com/HJfod/BetterEdit/releases/download/v6.3.3/hjfod.betteredit.geode`)
+7. Если у тебя есть статус **подтверждён** в индексе, то мод будет доступен для скачивания сразу. Если нет, то **админ индекса** должен будет проверить, соответствует ли твой мод [требованиям](/mods/guidelines), и одобрить его.
 
-## Releasing updates
+## Выпуск обновлений
 
-To release an update, use `geode index mods update`. You will have to be already logged in with the index to use this command.
+Чтобы выпустить обновление, используй `geode index mods update`. Ты должен быть уже залогинен в индекс, чтобы использовать эту команду.
 
-If you are using GitHub releases (or any other system), **do not update an existing release** - create a new one instead. Updating an existing release **will break that version of the mod**, as the Geode package is checksummed.
+Если ты используешь релизы GitHub (или любую другую систему), **не обновляй существующий релиз**, создай новый. Обновление существующего релиза **сломает эту версию мода**, так как пакет Geode проверяется по контрольной сумме..
 
-Make sure to **increase your mod version** when updating it! You should be following [Semantic Versioning](https://semver.org), especially if you're developing a mod with a **public API**.
+Обязательно **увеличивай версию мода** при обновлении! Следует использовать [семантическое версионирование](https://semver.org), особенно если ты разрабатываешь мод с публичным API.
 
-If you are a **verified** developer, then the update will automatically be accepted onto the index, without the need of approval from an **index admin**.
+## Что насчет модов с закрытым исходным кодом?
 
-## What are **verified** developers?
+Даже если твой мод с **закрытым исходным кодом**, тебе все равно нужно предоставить исходный код для проверки. Это можно сделать, обратившись к [кому-то, кто может одобрить новые моды](#who-can-approve-mods) в репозитории индекса и отправив им исходный код конфиденциально, например, временно добавив их в качестве контрибьютора в свой приватный репозиторий.
 
-Being a verified developer has the sole benefit of not requiring your mod updates to be checked by an **index admin** (and a cool role on the Discord server). **Newly created mods** will still have to go through the verification process. Of course, this means that we do not give the verified status easily. You can become a verified developer by having good quality mods (or mod, you don't have to upload tens of them), proving that you are trustworthy, and being an overall helpful figure in the modding community.
+**Разработчики Geode никогда не сливают и не крадут исходный код!** Если ты обнаружишь, что человек, который проверил твой мод, нарушил это доверие, **немедленно сообщи об этом другим ведущим разработчикам Geode**.
 
-Once you have your verified status, try and uphold the same quality standards you were keeping before getting the role. Having no update checks comes with the temptation of releasing updates **faster** and "figuring it out later if it breaks", which is not a mindset you should be having. Consistently having incidents where you release a broken update **will** lead to your verified status being removed. It also goes without saying that if you release mods / updates that break the **ban rules**, there will be consequences.
+## Что насчет платных модов?
 
-## What about closed source mods?
+Платные моды можно публиковать в индексе, если они соответствуют [требованиям для платных модов](/mods/guidelines#Платные-моды). Обрати внимание, что правила для модов с закрытым исходным кодом также распространяются на платные моды; платные моды должны отправлять свой исходный код для проверки, включая любые дополнительные компоненты с закрытым исходным кодом, которые загружаются во время выполнения.
 
-Even if your mod is **closed source**, you still need to submit the source code for verification. Do so by asking [someone who can approve new mods](#who-can-approve-mods) on the index repository and send them the source code privately, for example by adding them temporarily as a contributor to your private repository.
+## Кто может одобрять моды?
 
-**Geode developers will never leak or steal your source code!** If you find that the person who verified your mod has breached this vital level of trust, **do let the other Geode lead developers know immediately**.
-
-## What about paid mods?
-
-Paid mods may be published on the index, as long as they follow the [guidelines for paid mods](/mods/guidelines#paid-mods). Do note that the rules for closed source mods still apply to paid mods; paid mods must submit their source code for verification, including any extra closed-source components that are downloaded at runtime.
-
-## Who can approve mods?
-
-**New mods** and **updates** for mods can be verified by **lead developers** and **index admins**. Additionally, anyone with the `verified` priviledge can automatically submit new mods / update their own mods without needing to wait for a staff member to verify it.
+**Новые моды** и **обновления** для них могут быть проверены **ведущими разработчиками** и **администраторами индекса**. Кроме того, любой, у кого есть привилегия `verified`, может автоматически отправлять новые моды / обновлять свои собственные моды, не дожидаясь проверки модератором.
