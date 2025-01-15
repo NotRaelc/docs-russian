@@ -25,11 +25,11 @@ geode new
 
 Исходный код вашего мода должен находится папке `src`.
 
-## Additional Files
+## Дополнительные файлы
 
-Geode will also look for these special files within your mod folder:
- * `changelog.md` - Lists all of the changes between versions to the mod; [see detailed info](/mods/md-files)
- * `support.md` - Free-form info about how to show support to the developer of the mod; [see detailed info](/mods/md-files)
+Геод также смотрит на дополнительные файлы, такие как:
+ * `changelog.md` - Список изменений по сравнению с приведущей версией мода (ПОЖАЛУЙСТА ПИШИТЕ ИХ); [Подробнее](/mods/md-files)
+ * `support.md` - Информация кто помогал в создании мода; [Подробнее](/mods/md-files)
 
 # Build
 
