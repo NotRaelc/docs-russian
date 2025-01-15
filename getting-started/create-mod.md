@@ -1,29 +1,29 @@
 ---
-title: 3. Creating and building a new mod
-order: 5
+Заголовок: 3. Создание та компиляция мода
+очередь: 5
 ---
 
-# Creating a new mod
+# Создание нового мода
 
-After all that setup, you can now create your first mod!
+После установки всех программ и вещей, вы можете создать свой первый мод!
 
-To do this, open up a terminal where you want to create your project and run:
+Чтобы это сделать откройте терминал в месте где вы хотите создать мод и напишите:
 ```bash
 geode new
 ```
-Follow the given prompts and afterwards you should have a new folder containing the code for your mod.
+Следуя этим указаниям у вас должна содержащая папка, где содержатся все нужные файлы для создания моду.
 
-## Files
+## Файлы
 
-You may notice the project already comes with a few files. Lets go over them:
- * `CMakeLists.txt` - This is the main file for your CMake project.
- * `about.md` - Here you can write a very long description page for your mod, in markdown. Think of it as a README for your mod! This file is technically optional, but highly recommended.
- * `logo.png` - This is the icon for your mod, which shows up in-game. This file is technically optional, but highly recommended.
- * `mod.json` - This json file contains all the metadata about your mod, such as name, version, custom resources, settings, etc. [See this page for detailed info](/mods/configuring)
+Следуя этим указаяниям, у вам в папке должны появится файлы для работы над модом. Давайте разберем что это такое, и с чем это едят:
+ * `CMakeLists.txt` - Это главный CMake файл, для вашего мода.
+ * `about.md` - Тут вы можете написать длиннющие описание для вашего мода. КОГДА ВЫ ЕГО ПИШИТЕ ДУМАЙТЕ КАК БУДТО ЭТО ФАЙЛ README (Прочитай меня). Этот файл технически не нужен, но на деле крайне рекомендуется чтобы он был
+ * `logo.png` - Это иконка для вашего мода, которая будет показывается в игре. Этот файл технически не нужен, но на деле крайне рекомендуется чтобы он был.
+ * `mod.json` - В этом json файле содержатся все метаданные про ваш мод, такие как: версия, имя мода, настройки его, и так далее. [Если хотите узнать об этом по подробнее перейдите сюда](/mods/configuring)
 
-If you plan on releasing your mod, remember to edit the about.md and logo.png files!
+Если в ваших планах есть выпуск мода, то помните что вы должны отредактировать файлы about.md и logo.png!
 
-The source code for your mod can be found inside the `src` folder.
+Исходный код вашего мода должен находится папке `src`.
 
 ## Additional Files
 
